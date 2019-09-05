@@ -242,10 +242,8 @@
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
-        $.fn.selUlLI = function (arg) {
+        $.fn.arCustSelect = function (arg) {
             var element = $(this);
-            
-            
             element.each(function(index){
                 var defaultText = $(this).find('option:selected').text();
                 $(this).after('<div class="selectWrap"><ul class="instedSelectOption"><\/ul><div class="selectedItem">'+defaultText+'</div></div>');
@@ -284,7 +282,7 @@
         // $('option').each(function(){
         //     $(this).val($(this).text());
         // });
-        $('.ariConverter').selUlLI({
+        $('.ariConverter').arCustSelect({
             parentIcon: '<i class="fa fa-angle-down"></a>',
             checkbox: false
         });
