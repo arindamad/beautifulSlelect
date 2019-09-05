@@ -255,7 +255,8 @@
             //creating crosponding ul li
             element.find("option").not(":selected").each(function (index) {
                 var liText = $(this).text();
-                $(this).parent().siblings('.selectWrap').find('.instedSelectOption').append('<li>' + cb + labelStart + liText + labelEnd + "</li>");
+                var val= $(this).val();
+                $(this).parent().siblings('.selectWrap').find('.instedSelectOption').append('<li value="'+val+'">' + cb + labelStart + liText + labelEnd + "</li>");
             });
             $('.selectedItem').after("<span class='listIcon'>" + iconInDropdrawn + "</span>");
 
@@ -272,16 +273,12 @@
                 $(this).siblings().removeClass('active');
                 $(this).addClass("active");
                 var index = $(this).index();
-                console.log(index);
-                $(this).closest('.selectWrap').siblings('.ariConverter').val(1).trigger('change');
+                $(this).closest('.selectWrap').siblings('.ariConverter').val($(this).attr("value")).trigger('change');
             });
         }       
     </script>
 
     <script>
-        // $('option').each(function(){
-        //     $(this).val($(this).text());
-        // });
         $('.ariConverter').arCustSelect({
             parentIcon: '<i class="fa fa-angle-down"></a>',
             checkbox: false
